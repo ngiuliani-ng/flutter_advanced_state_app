@@ -11,3 +11,5 @@ A new Flutter application. Fudeo exercises.
         - Argument: **Stato Locale & Stato Globale**
     - Lesson 7.3: https://bit.ly/3wuoRAo
         - Argument: **Panoramica Codice App**
+    - Lesson 7.4: https://bit.ly/3rQyxBF
+        - Argument: **BLoc & getIt**
