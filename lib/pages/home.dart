@@ -29,11 +29,54 @@ class HomePage extends StatelessWidget {
         },
       ),
       actions: [
+        shoppingCart(),
+      ],
+    );
+  }
+
+  Widget shoppingCart() {
+    return Stack(
+      children: [
         IconButton(
           icon: Icon(Icons.shopping_cart),
           onPressed: () {
             print('Shopping Cart');
           },
+        ),
+        Positioned(
+          top: 2.5,
+          right: 2.5,
+          child: Container(
+            // Circle Inf.
+            width: 21,
+            height: 21,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              shape: BoxShape.circle,
+            ),
+          ),
+        ),
+        Positioned(
+          top: 2.5,
+          right: 2.5,
+          child: Container(
+            // Circle Sup.
+            width: 20,
+            height: 20,
+            decoration: BoxDecoration(
+              color: Colors.red,
+              shape: BoxShape.circle,
+            ),
+            child: Center(
+              child: Text(
+                '10',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 12.5,
+                ),
+              ),
+            ),
+          ),
         ),
       ],
     );
