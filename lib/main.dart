@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'package:flutter_advanced_state_app/pages/home.dart';
+import 'package:flutter_advanced_state_app/pages/checkout.dart';
 
 void main() {
   runApp(App());
@@ -22,6 +23,10 @@ class App extends StatelessWidget {
         primaryColor: Colors.white,
         scaffoldBackgroundColor: Colors.white,
       ),
+      routes: {
+        HomePage.routeName: (_) => HomePage(),
+        CheckoutPage.routeName: (_) => CheckoutPage(),
+      },
     );
   }
 }

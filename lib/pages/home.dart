@@ -1,24 +1,28 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_advanced_state_app/pages/checkout.dart';
+
 class HomePage extends StatelessWidget {
+  static String routeName = '/home';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: body(),
+      body: body(context),
     );
   }
 
-  Widget body() {
+  Widget body(BuildContext context) {
     return CustomScrollView(
       slivers: [
-        appBar(),
+        appBar(context),
         gridHeader(),
         gridProducts(),
       ],
     );
   }
 
-  Widget appBar() {
+  Widget appBar(BuildContext context) {
     return SliverAppBar(
       floating: true,
       elevation: 0,
@@ -29,18 +33,18 @@ class HomePage extends StatelessWidget {
         },
       ),
       actions: [
-        shoppingCart(),
+        shoppingCart(context),
       ],
     );
   }
 
-  Widget shoppingCart() {
+  Widget shoppingCart(BuildContext context) {
     return Stack(
       children: [
         IconButton(
           icon: Icon(Icons.shopping_cart),
           onPressed: () {
-            print('Shopping Cart');
+            Navigator.pushNamed(context, CheckoutPage.routeName);
           },
         ),
         Positioned(
