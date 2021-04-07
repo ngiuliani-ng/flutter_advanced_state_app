@@ -71,7 +71,9 @@ class HomePage extends StatelessWidget {
       sliver: SliverGrid(
         delegate: SliverChildBuilderDelegate(
           (context, index) {
-            return singleProduct();
+            return singleProduct(
+              index: index,
+            );
           },
           childCount: 10,
         ),
@@ -85,9 +87,57 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget singleProduct() {
-    return Container(
-      color: Colors.grey,
+  Widget singleProduct({
+    @required int index,
+  }) {
+    return GestureDetector(
+      onTap: () {
+        print('Single Product $index');
+      },
+      child: Column(
+        children: [
+          Container(
+            width: double.infinity,
+            height: 200,
+            decoration: BoxDecoration(
+              color: Colors.grey,
+              borderRadius: BorderRadius.circular(16),
+            ),
+          ),
+          SizedBox(
+            height: 8,
+          ),
+          Row(
+            children: [
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // TODO: Importo totalmente in basso indipendente dal nome dell'oggetto.
+                    Text('Nome Oggetto'),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Text(
+                      '\$ 9.99',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                width: 8,
+              ),
+              Icon(
+                Icons.favorite,
+                color: Colors.grey,
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
