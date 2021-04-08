@@ -89,7 +89,11 @@ class HomePage extends StatelessWidget {
   Widget gridHeader() {
     return SliverToBoxAdapter(
       child: Padding(
-        padding: EdgeInsets.all(16),
+        /**
+         * T: 8 px.  [gridProducts]
+         * B: 8 px.  [gridHeader]
+         */
+        padding: EdgeInsets.fromLTRB(16, 16, 16, 8),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -114,7 +118,11 @@ class HomePage extends StatelessWidget {
 
   Widget gridProducts() {
     return SliverPadding(
-      padding: EdgeInsets.all(16),
+      /**
+       * T: 8 px.  [gridProducts]
+       * B: 8 px.  [gridHeader]
+       */
+      padding: EdgeInsets.fromLTRB(16, 8, 16, 16),
       sliver: SliverGrid(
         delegate: SliverChildBuilderDelegate(
           (context, index) {
