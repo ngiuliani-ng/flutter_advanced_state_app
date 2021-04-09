@@ -29,7 +29,7 @@ class HomePage extends StatelessWidget {
       leading: IconButton(
         icon: Icon(Icons.person),
         onPressed: () {
-          print('Profile');
+          // TODO: ProfilePage.
         },
       ),
       actions: [
@@ -87,6 +87,10 @@ class HomePage extends StatelessWidget {
   }
 
   Widget gridHeader() {
+    /**
+     * E' stato utilizzato [SliverToBoxAdapter]
+     * perchè [SliverPadding] non supporta [Column] come sliver.
+     */
     return SliverToBoxAdapter(
       child: Padding(
         /**
@@ -145,13 +149,13 @@ class HomePage extends StatelessWidget {
   Widget singleProduct({
     @required int index,
   }) {
-    return GestureDetector(
-      onTap: () {
-        print('Single Product $index');
-      },
-      child: Column(
-        children: [
-          Container(
+    return Column(
+      children: [
+        GestureDetector(
+          onTap: () {
+            // TODO: DetailsPage.
+          },
+          child: Container(
             width: double.infinity,
             height: 200,
             decoration: BoxDecoration(
@@ -159,40 +163,46 @@ class HomePage extends StatelessWidget {
               borderRadius: BorderRadius.circular(16),
             ),
           ),
-          SizedBox(
-            height: 8,
-          ),
-          Row(
-            children: [
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    // TODO: Importo totalmente in basso indipendente dal nome dell'oggetto.
-                    Text('Nome Oggetto'),
-                    SizedBox(
-                      height: 5,
+        ),
+        SizedBox(
+          height: 8,
+        ),
+        Row(
+          children: [
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text('Nome Oggetto'),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  // TODO: Importo totalmente in basso indipendente dal nome dell'oggetto.
+                  Text(
+                    '\$ 9.99',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
                     ),
-                    Text(
-                      '\$ 9.99',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-              SizedBox(
-                width: 8,
-              ),
-              Icon(
+            ),
+            SizedBox(
+              width: 8,
+            ),
+            IconButton(
+              icon: Icon(
                 Icons.favorite,
                 color: Colors.grey,
               ),
-            ],
-          ),
-        ],
-      ),
+              splashRadius: 25,
+              onPressed: () {
+                print('Single Product $index - Add');
+              },
+            ),
+          ],
+        ),
+      ],
     );
   }
 }

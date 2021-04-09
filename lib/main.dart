@@ -21,7 +21,6 @@ class App extends StatelessWidget {
       home: HomePage(),
       theme: ThemeData(
         primaryColor: Colors.white,
-        scaffoldBackgroundColor: Colors.white,
       ),
       routes: {
         HomePage.routeName: (_) => HomePage(),

@@ -75,27 +75,32 @@ class CheckoutPage extends StatelessWidget {
         SizedBox(
           width: 8,
         ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text('Nome Oggetto'),
-            SizedBox(
-              height: 5,
-            ),
-            Text(
-              '\$ 9.99',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('Nome Oggetto'),
+              SizedBox(
+                height: 5,
               ),
-            ),
-            SizedBox(
-              height: 8,
-            ),
-            Icon(
-              Icons.favorite,
-              color: Colors.grey,
-            ),
-          ],
+              Text(
+                '\$ 9.99',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
+        ),
+        IconButton(
+          icon: Icon(
+            Icons.delete,
+            color: Colors.grey,
+          ),
+          splashRadius: 25,
+          onPressed: () {
+            print('Single Product $index - Delete');
+          },
         ),
       ],
     );
@@ -130,7 +135,7 @@ class CheckoutPage extends StatelessWidget {
             ],
           ),
           SizedBox(
-            height: 16,
+            height: 24,
           ),
           MaterialButton(
             child: Text('Pay Now'),
@@ -141,9 +146,7 @@ class CheckoutPage extends StatelessWidget {
             ),
             color: Colors.black,
             textColor: Colors.white,
-            onPressed: () {
-              print('Pay Now');
-            },
+            onPressed: () {},
           ),
         ],
       ),
