@@ -26,6 +26,7 @@ class App extends StatelessWidget {
         HomePage.routeName: (_) => HomePage(),
         CheckoutPage.routeName: (_) => CheckoutPage(),
       },
+      initialRoute: HomePage.routeName,
     );
   }
 }
