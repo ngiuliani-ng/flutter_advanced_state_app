@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'package:flutter_advanced_state_app/blocs/allProducts.dart';
+
+import 'package:flutter_advanced_state_app/models/product.dart';
+
 import 'package:flutter_advanced_state_app/pages/checkout.dart';
 
 class HomePage extends StatefulWidget {
@@ -10,6 +16,15 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  @override
+  void initState() {
+    super.initState();
+    /**
+     * Qui mandiamo l'evento [AllProductsEvent.Get] al [AllProductsBloc].
+     */
+    BlocProvider.of<AllProductsBloc>(context).add(AllProductsEvent.Get);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -126,33 +141,48 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget gridProducts() {
-    return SliverPadding(
-      /**
-       * T: 8 px.  [gridProducts]
-       * B: 8 px.  [gridHeader]
-       */
-      padding: EdgeInsets.fromLTRB(16, 8, 16, 16),
-      sliver: SliverGrid(
-        delegate: SliverChildBuilderDelegate(
-          (context, index) {
-            return singleProduct(
-              index: index,
-            );
-          },
-          childCount: 10,
-        ),
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          childAspectRatio: 0.65,
-          crossAxisCount: 2,
-          crossAxisSpacing: 16,
-          mainAxisSpacing: 16,
-        ),
-      ),
+    return BlocBuilder<AllProductsBloc, AllProductsState>(
+      builder: (context, state) {
+        if (state is AllProductsLoadingState) {
+          return SliverFillRemaining(
+            child: Center(
+              child: CircularProgressIndicator(),
+            ),
+          );
+        } else {
+          final products = (state as AllProductsLoadedState).products;
+          return SliverPadding(
+            /**
+             * T: 8 px.  [gridProducts]
+             * B: 8 px.  [gridHeader]
+             */
+            padding: EdgeInsets.fromLTRB(16, 8, 16, 16),
+            sliver: SliverGrid(
+              delegate: SliverChildBuilderDelegate(
+                (context, index) {
+                  return singleProduct(
+                    index: index,
+                    product: products[index],
+                  );
+                },
+                childCount: products.length,
+              ),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                childAspectRatio: 0.65,
+                crossAxisCount: 2,
+                crossAxisSpacing: 16,
+                mainAxisSpacing: 16,
+              ),
+            ),
+          );
+        }
+      },
     );
   }
 
   Widget singleProduct({
     @required int index,
+    @required ProductModel product,
   }) {
     return Column(
       children: [
@@ -166,6 +196,10 @@ class _HomePageState extends State<HomePage> {
             decoration: BoxDecoration(
               color: Colors.grey,
               borderRadius: BorderRadius.circular(16),
+              image: DecorationImage(
+                image: NetworkImage(product.imageUrl),
+                fit: BoxFit.cover,
+              ),
             ),
           ),
         ),
@@ -178,13 +212,13 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Nome Oggetto'),
+                  Text(product.name),
                   SizedBox(
                     height: 5,
                   ),
                   // TODO: Importo totalmente in basso indipendente dal nome dell'oggetto.
                   Text(
-                    '\$ 9.99',
+                    '\$ ${product.price}',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                     ),
@@ -202,7 +236,7 @@ class _HomePageState extends State<HomePage> {
               ),
               splashRadius: 25,
               onPressed: () {
-                print('Single Product $index - Add');
+                print('Added Product - ${product.id}');
               },
             ),
           ],

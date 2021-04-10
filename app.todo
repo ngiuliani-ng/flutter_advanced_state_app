@@ -1,0 +1,9 @@
+Progetto:
+    ✔ Layout App. @done(21-04-10 14:58)
+    ✔ Definizione ProductModel. @done(21-04-10 14:58)
+    ✔ Definizione ProductRepository. @done(21-04-10 14:58)
+    ✔ Definizione AllProductsBloc. @done(21-04-10 21:26)
+        ✔ Registrazione Bloc nel main(). @done(21-04-10 21:42)
+        ✔ Registrazione Bloc nell'initState() della HomePage. @done(21-04-10 21:42)
+        ✔ Sottoscrizione al Bloc nella gridProducts della HomePage. @done(21-04-10 22:17)
+        ✔ Istanziare ProductRepository come singleton con GetIt. @done(21-04-10 23:31)
