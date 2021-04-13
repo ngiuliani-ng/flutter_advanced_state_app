@@ -15,3 +15,6 @@ A new Flutter application. Fudeo exercises.
         - Argument: **BLoc & GetIt**
     - Lesson 7.5: https://bit.ly/3tbo2uo
         - Argument: **BLoc & GetIt**
+            - Screenshot App: Screenshot\Screenshot_1618345333.png
+            - Screenshot App: Screenshot\Screenshot_1618345368.png
+            - Screenshot App: Screenshot\Screenshot_1618345371.png

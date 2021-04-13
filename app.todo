@@ -6,7 +6,8 @@ App:
         ✔ Definire ProductRepository. @done(21-04-13 05:30)
             ✔ Istanziare ProductRepository come singleton con GetIt nel main(). @done(21-04-13 05:30)
                 Il singleton è un design pattern creazionale che ha lo scopo di garantire che di una determinata classe venga creata una e una sola istanza, e di fornire un punto di accesso globale a tale istanza.
-                [https://it.wikipedia.org/wiki/Singleton_(informatica)]
+                Wikipedia: [https://it.wikipedia.org/wiki/Singleton_(informatica)]
+                Noi utilizziamo GetIt per creare, all'avvio dell'app, una singola instanza della repository.
         ✔ Definire AllProductsBloc. @done(21-04-13 05:47)
             ✔ Registrare il Bloc nel main(). @done(21-04-13 05:47)
                 ✔ Definire l'initialState. @done(21-04-13 05:47)
@@ -16,7 +17,8 @@ App:
         ✔ Definire ShoppingCartRepository. @done(21-04-13 05:30)
             ✔ Istanziare ShoppingCartRepository come singleton con GetIt nel main(). @done(21-04-13 05:30)
                 Il singleton è un design pattern creazionale che ha lo scopo di garantire che di una determinata classe venga creata una e una sola istanza, e di fornire un punto di accesso globale a tale istanza.
-                [https://it.wikipedia.org/wiki/Singleton_(informatica)]
+                Wikipedia: [https://it.wikipedia.org/wiki/Singleton_(informatica)]
+                Noi utilizziamo GetIt per creare, all'avvio dell'app, una singola instanza della repository.
         ✔ Definire ShoppingCartBloc. @done(21-04-13 05:47)
             ✔ Registrare il Bloc nel main(). @done(21-04-13 05:47)
                 ✔ Definire l'initialState. @done(21-04-13 05:47)
@@ -26,3 +28,4 @@ App:
             ✔ Aggiungere la sottoscrizione al Bloc nel shoppingCart della HomePage. @done(21-04-13 05:54)
             ✔ Aggiungere la sottoscrizione al Bloc nel body della CheckoutPage. @done(21-04-13 06:02)
             ✔ Aggiungere ShoppingCartRemoveEvent all'onPressed nel singleProduct della CheckoutPage. @done(21-04-13 06:02)
+            ✔ Integrare il BlocConsumer per uscire dalla CheckoutPage quando il carrello è vuoto. @done(21-04-13 06:10)

@@ -37,7 +37,13 @@ class _CheckoutPageState extends State<CheckoutPage> {
   }
 
   Widget body(BuildContext context) {
-    return BlocBuilder<ShoppingCartBloc, ShoppingCartState>(
+    return BlocConsumer<ShoppingCartBloc, ShoppingCartState>(
+      listener: (context, state) {
+        List<ProductModel> products = state.products;
+        if (products.isEmpty) {
+          Navigator.pop(context);
+        }
+      },
       builder: (context, state) {
         List<ProductModel> products = state.products;
         final totalCost = (products.length > 0) ? (products.map((e) => e.price).reduce((value, element) => value + element).toStringAsFixed(2)) : '0.00';
