@@ -5,8 +5,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 
 import 'package:flutter_advanced_state_app/blocs/allProducts.dart';
+import 'package:flutter_advanced_state_app/blocs/shoppingCart.dart';
 
 import 'package:flutter_advanced_state_app/repositories/product.dart';
+import 'package:flutter_advanced_state_app/repositories/shoppingCart.dart';
 
 import 'package:flutter_advanced_state_app/pages/home.dart';
 import 'package:flutter_advanced_state_app/pages/checkout.dart';
@@ -15,10 +17,24 @@ final getIt = GetIt.instance;
 
 void main() {
   getIt.registerSingleton(ProductRepository());
+  getIt.registerSingleton(ShoppingCartRepository());
 
   runApp(
-    BlocProvider(
-      create: (_) => AllProductsBloc(AllProductsLoadingState()),
+    MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (_) => AllProductsBloc(
+            // initialState --->
+            AllProductsLoadingState(),
+          ),
+        ),
+        BlocProvider(
+          create: (_) => ShoppingCartBloc(
+            // initialState --->
+            ShoppingCartState([]),
+          ),
+        ),
+      ],
       child: App(),
     ),
   );

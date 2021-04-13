@@ -1,9 +1,28 @@
-Progetto:
-    ✔ Layout App. @done(21-04-10 14:58)
-    ✔ Definizione ProductModel. @done(21-04-10 14:58)
-    ✔ Definizione ProductRepository. @done(21-04-10 14:58)
-    ✔ Definizione AllProductsBloc. @done(21-04-10 21:26)
-        ✔ Registrazione Bloc nel main(). @done(21-04-10 21:42)
-        ✔ Registrazione Bloc nell'initState() della HomePage. @done(21-04-10 21:42)
-        ✔ Sottoscrizione al Bloc nella gridProducts della HomePage. @done(21-04-10 22:17)
-        ✔ Istanziare ProductRepository come singleton con GetIt. @done(21-04-10 23:31)
+App:
+    Generale:
+        ✔ Layout. @done(21-04-13 05:09)
+    HomePage:
+        ✔ Definire ProductModel. @done(21-04-13 05:30)
+        ✔ Definire ProductRepository. @done(21-04-13 05:30)
+            ✔ Istanziare ProductRepository come singleton con GetIt nel main(). @done(21-04-13 05:30)
+                Il singleton è un design pattern creazionale che ha lo scopo di garantire che di una determinata classe venga creata una e una sola istanza, e di fornire un punto di accesso globale a tale istanza.
+                [https://it.wikipedia.org/wiki/Singleton_(informatica)]
+        ✔ Definire AllProductsBloc. @done(21-04-13 05:47)
+            ✔ Registrare il Bloc nel main(). @done(21-04-13 05:47)
+                ✔ Definire l'initialState. @done(21-04-13 05:47)
+            ✔ Aggiungere Get nell'initState() della HomePage. @done(21-04-13 05:51)
+            ✔ Aggiungere la sottoscrizione al Bloc nel gridProducts della HomePage. @done(21-04-13 05:57)
+    CheckoutPage:
+        ✔ Definire ShoppingCartRepository. @done(21-04-13 05:30)
+            ✔ Istanziare ShoppingCartRepository come singleton con GetIt nel main(). @done(21-04-13 05:30)
+                Il singleton è un design pattern creazionale che ha lo scopo di garantire che di una determinata classe venga creata una e una sola istanza, e di fornire un punto di accesso globale a tale istanza.
+                [https://it.wikipedia.org/wiki/Singleton_(informatica)]
+        ✔ Definire ShoppingCartBloc. @done(21-04-13 05:47)
+            ✔ Registrare il Bloc nel main(). @done(21-04-13 05:47)
+                ✔ Definire l'initialState. @done(21-04-13 05:47)
+            ✔ Aggiungere ShoppingCartAddEvent all'onPressed nel singleProduct della HomePage. @done(21-04-13 05:58)
+            ✔ Aggiungere ShoppingCartRemoveEvent all'onPressed nel singleProduct della HomePage. @done(21-04-13 05:58)
+            ✔ Aggiungere la sottoscrizione al Bloc nel gridProducts della HomePage. @done(21-04-13 05:57)
+            ✔ Aggiungere la sottoscrizione al Bloc nel shoppingCart della HomePage. @done(21-04-13 05:54)
+            ✔ Aggiungere la sottoscrizione al Bloc nel body della CheckoutPage. @done(21-04-13 06:02)
+            ✔ Aggiungere ShoppingCartRemoveEvent all'onPressed nel singleProduct della CheckoutPage. @done(21-04-13 06:02)

@@ -12,4 +12,6 @@ A new Flutter application. Fudeo exercises.
     - Lesson 7.3: https://bit.ly/3wuoRAo
         - Argument: **Panoramica Codice App**
     - Lesson 7.4: https://bit.ly/3rQyxBF
-        - Argument: **BLoc & getIt**
+        - Argument: **BLoc & GetIt**
+    - Lesson 7.5: https://bit.ly/3tbo2uo
+        - Argument: **BLoc & GetIt**

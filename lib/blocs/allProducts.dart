@@ -6,9 +6,6 @@ import 'package:flutter_advanced_state_app/models/product.dart';
 
 import 'package:flutter_advanced_state_app/main.dart';
 
-/// La classe [Bloc<Event, State>] prende un flusso di eventi come input
-/// e li trasforma in un flusso di stati come output.
-
 class AllProductsBloc extends Bloc<AllProductsEvent, AllProductsState> {
   AllProductsBloc(AllProductsState initialState) : super(initialState);
 
