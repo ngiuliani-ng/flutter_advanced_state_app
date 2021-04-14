@@ -46,7 +46,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
       },
       builder: (context, state) {
         List<ProductModel> products = state.products;
-        final totalCost = (products.length > 0) ? (products.map((e) => e.price).reduce((value, element) => value + element).toStringAsFixed(2)) : '0.00';
+        final totalCost = products.length > 0 ? products.map((e) => e.price).reduce((value, element) => value + element).toStringAsFixed(2) : '0.00';
         return Column(
           children: [
             Expanded(
