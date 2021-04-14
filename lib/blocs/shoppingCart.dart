@@ -11,11 +11,11 @@ class ShoppingCartBloc extends Bloc<ShoppingCartEvent, ShoppingCartState> {
 
   @override
   Stream<ShoppingCartState> mapEventToState(ShoppingCartEvent event) async* {
-    if (event is ShoppingCartAddEvent) {
+    if (event is ShoppingCartAddProductEvent) {
       final productToAdd = event.product;
       final newShoppingCart = getIt<ShoppingCartRepository>().addProduct(productToAdd);
       yield ShoppingCartState(newShoppingCart);
-    } else if (event is ShoppingCartRemoveEvent) {
+    } else if (event is ShoppingCartRemoveProductEvent) {
       final productToRemove = event.product;
       final newShoppingCart = getIt<ShoppingCartRepository>().removeProduct(productToRemove);
       yield ShoppingCartState(newShoppingCart);
@@ -25,16 +25,16 @@ class ShoppingCartBloc extends Bloc<ShoppingCartEvent, ShoppingCartState> {
 
 abstract class ShoppingCartEvent {}
 
-class ShoppingCartAddEvent extends ShoppingCartEvent {
-  ShoppingCartAddEvent(
+class ShoppingCartAddProductEvent extends ShoppingCartEvent {
+  ShoppingCartAddProductEvent(
     this.product,
   );
 
   ProductModel product;
 }
 
-class ShoppingCartRemoveEvent extends ShoppingCartEvent {
-  ShoppingCartRemoveEvent(
+class ShoppingCartRemoveProductEvent extends ShoppingCartEvent {
+  ShoppingCartRemoveProductEvent(
     this.product,
   );
 

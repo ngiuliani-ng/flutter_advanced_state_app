@@ -135,7 +135,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
           ),
           splashRadius: 25,
           onPressed: () {
-            BlocProvider.of<ShoppingCartBloc>(context).add(ShoppingCartRemoveEvent(product));
+            BlocProvider.of<ShoppingCartBloc>(context).add(ShoppingCartRemoveProductEvent(product));
             print('${product.id} Removed Product');
           },
         ),

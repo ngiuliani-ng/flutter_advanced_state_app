@@ -247,10 +247,10 @@ class _HomePageState extends State<HomePage> {
               splashRadius: 25,
               onPressed: () {
                 if (isProductInShoppingCart) {
-                  BlocProvider.of<ShoppingCartBloc>(context).add(ShoppingCartRemoveEvent(product));
+                  BlocProvider.of<ShoppingCartBloc>(context).add(ShoppingCartRemoveProductEvent(product));
                   print('${product.id} Removed Product');
                 } else {
-                  BlocProvider.of<ShoppingCartBloc>(context).add(ShoppingCartAddEvent(product));
+                  BlocProvider.of<ShoppingCartBloc>(context).add(ShoppingCartAddProductEvent(product));
                   print('${product.id} Added Product');
                 }
               },
