@@ -19,9 +19,6 @@ class ShoppingCartBloc extends Bloc<ShoppingCartEvent, ShoppingCartState> {
       final productToRemove = event.product;
       final newShoppingCart = getIt<ShoppingCartRepository>().removeProduct(productToRemove);
       yield ShoppingCartState(newShoppingCart);
-    } else if (event is ShoppingCartGetEvent) {
-      final shoppingCart = getIt<ShoppingCartRepository>().products;
-      yield ShoppingCartState(shoppingCart);
     }
   }
 }
@@ -43,8 +40,6 @@ class ShoppingCartRemoveEvent extends ShoppingCartEvent {
 
   ProductModel product;
 }
-
-class ShoppingCartGetEvent extends ShoppingCartEvent {}
 
 class ShoppingCartState {
   ShoppingCartState(
